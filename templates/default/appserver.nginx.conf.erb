@@ -82,6 +82,12 @@ server {
   }
 }
 
+server {
+  listen      80;
+  server_name "[::ffff:a9fe:a9fe]";
+  return      444;
+}
+
 <% if @application[:enable_ssl] %>
 server {
   listen <%= @out[:ssl_port] %> default_server;
@@ -177,4 +183,11 @@ server {
     root <%= File.join(@deploy_dir, 'current', 'public') %>;
   }
 }
+
+server {
+  listen      443;
+  server_name "[::ffff:a9fe:a9fe]";
+  return      444;
+}
+
 <% end %>
