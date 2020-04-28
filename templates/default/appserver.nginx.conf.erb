@@ -70,6 +70,10 @@ server {
     deny all;
   }
 
+  location ~* .*/latest/dynamic/instance\-identity/document$ {
+    return 444;
+  }
+
   <%= @out[:extra_config] %>
 
   error_page 500 502 503 504 /500.html;
