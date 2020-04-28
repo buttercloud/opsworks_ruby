@@ -166,6 +166,10 @@ server {
     }
   }
 
+  location ~* .*/latest/dynamic/instance\-identity/document$ {
+    return 444;
+  }
+
   <%= @out[:extra_config_ssl] %>
 
   error_page 500 502 503 504 /500.html;
