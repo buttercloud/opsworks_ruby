@@ -14,14 +14,14 @@ depends 'ark', '= 4.0.0'
 depends 'chef_client_updater', '~> 3.6.0' # 3.7 introduces breaking change
 depends 'logrotate', '2.2.1' # 2.2.2 breaks tests for whatever reason
 depends 'nginx', '< 9.0'
-depends 'nodejs'
+depends 'nodejs', '6.0.0'
 depends 'ohai', '< 5.3'
 depends 'ruby-ng'
 depends 's3_file'
 depends 'seven_zip', '~> 2.0'
 depends 'sudo', '= 5.4.4'
 depends 'windows', '< 5.0'
-depends 'yarn'
+depends 'yarn', '0.4.3'
 
 supports 'amazon', '>= 2017.03'
 supports 'ubuntu', '>= 16.04'
