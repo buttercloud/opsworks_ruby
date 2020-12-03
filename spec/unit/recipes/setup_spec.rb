@@ -6,6 +6,8 @@
 
 require 'spec_helper'
 
+ALL_APACHE2_MODULES = %w[expires headers lbmethod_byrequests proxy proxy_balancer proxy_http rewrite ssl].freeze
+
 describe 'opsworks_ruby::setup' do
   let(:chef_runner) do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '14.04') do |solo_node|
@@ -124,6 +126,12 @@ describe 'opsworks_ruby::setup' do
       )
     end
 
+    it 'links ruby' do
+      expect(chef_run).to create_link('/usr/local/bin/ruby').with(
+        to: '/usr/lib/fullstaq-ruby/versions/2.6/bin/ruby'
+      )
+    end
+
     context 'Debian' do
       it 'installs ruby 2.5' do
         chef_run = ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '14.04') do |solo_node|
@@ -165,7 +173,7 @@ describe 'opsworks_ruby::setup' do
       end
 
       it 'adds fullstaq apt repository' do
-        keyurl = 'https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/master/fullstaq-ruby.asc'
+        keyurl = 'https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc'
 
         expect(chef_run).to add_apt_repository('fullstaq-ruby').with(
           uri: 'https://apt.fullstaqruby.org',
@@ -236,7 +244,7 @@ describe 'opsworks_ruby::setup' do
           baseurl: 'https://yum.fullstaqruby.org/centos-7/$basearch',
           enabled: true,
           gpgcheck: false,
-          gpgkey: 'https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/master/fullstaq-ruby.asc',
+          gpgkey: 'https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc',
           repo_gpgcheck: true,
           sslverify: true
         )
@@ -509,7 +517,6 @@ describe 'opsworks_ruby::setup' do
   end
 
   context 'Mysql + S3 + apache2 + resque' do
-    ALL_APACHE2_MODULES = %w[expires headers lbmethod_byrequests proxy proxy_balancer proxy_http rewrite ssl].freeze
     let(:modules_already_enabled) { false }
 
     before do

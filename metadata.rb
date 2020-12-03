@@ -6,13 +6,12 @@ maintainer_email 'igor@rzegocki.pl'
 license 'MIT'
 description 'Set of chef recipes for OpsWorks based Ruby projects'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '1.18.0'
+version '1.19.0'
 chef_version '>= 12.0' if respond_to?(:chef_version)
 
 depends 'apt', '< 7.0'
 depends 'ark', '= 4.0.0'
 depends 'chef_client_updater', '~> 3.6.0' # 3.7 introduces breaking change
-depends 'deploy_resource'
 depends 'logrotate', '2.2.1' # 2.2.2 breaks tests for whatever reason
 depends 'nginx', '< 9.0'
 depends 'nodejs'

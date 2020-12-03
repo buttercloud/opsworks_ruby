@@ -1,3 +1,21 @@
+# [1.19.0](https://github.com/ajgon/opsworks_ruby/compare/v1.18.1...v1.19.0) (2020-08-02)
+
+
+### Features
+
+* **deploy:** include deploy resource polyfill ([4f6d6fd](https://github.com/ajgon/opsworks_ruby/commit/4f6d6fd634e949ee7751664d7da5061a1d2ea748)), closes [#242](https://github.com/ajgon/opsworks_ruby/issues/242)
+
+
+
+## [1.18.1](https://github.com/ajgon/opsworks_ruby/compare/v1.18.0...v1.18.1) (2020-05-13)
+
+
+### Bug Fixes
+
+* **setup:** link fullstaq ruby to /usr/local/bin ([559c015](https://github.com/ajgon/opsworks_ruby/commit/559c0158b80182326c371ed366259ef4ef7d0913)), closes [#237](https://github.com/ajgon/opsworks_ruby/issues/237)
+
+
+
 # [1.18.0](https://github.com/ajgon/opsworks_ruby/compare/v1.17.0...v1.18.0) (2020-02-29)
 
 

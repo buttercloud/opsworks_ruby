@@ -24,6 +24,8 @@ PreCommit:
     enabled: true
     exclude:
       - RELEASING.md
+      - libraries/provider_*.rb
+      - libraries/resource_deploy*.rb
   Foodcritic:
     enabled: true
     flags: ['-t', '~chef13', '-t', '~chef14', '-t', '~chef15', '-t', '~chef16']
@@ -36,11 +38,6 @@ PreCommit:
     enabled: true
   LocalPathsInGemfile:
     enabled: true
-  Mdl:
-    enabled: true
-    exclude:
-      - CHANGELOG.md
-      - .github/ISSUE_TEMPLATE.md
   MergeConflicts:
     enabled: true
   RuboCop:
@@ -49,8 +46,6 @@ PreCommit:
   ShellCheck:
     enabled: true
   TrailingWhitespace:
-    enabled: true
-  TravisLint:
     enabled: true
   XmlLint:
     enabled: true
